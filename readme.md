@@ -160,6 +160,16 @@ Fetches the elements that have the specified id in the html content.
 - **Returns:**
   - A list of elements usually one that have the same id as given in param.
 
+#### `get_elements_by_tag(html: str, tag: str) -> List[str]`
+
+Fetches all the elements that have the specified tag in the html content.
+
+- **Parameters:**
+  - `html`: A string containing the html content.
+  - `tag` : The tag of which u want elements for like <p> or <span>.
+- **Returns:**
+  - A list of elements usually one that have the same id as given in param.
+
 #### `get_elements_by_cls(html: str, class: str) -> List[str]`
 
 Fetches the elements that have the specified class in the html content.

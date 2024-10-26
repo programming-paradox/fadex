@@ -128,3 +128,29 @@ pub fn get_elements_by_cls(html: &str, class: &str) -> Vec<String> {
         .map(|html_content| html_content.clone())
         .collect()
 }
+
+
+pub fn get_elements_by_tag(html: &str, tag_name: &str) -> Vec<String> {
+    // Parse the HTML document
+    let document = Html::parse_document(html);
+
+    // Create a CSS selector for the tag name
+    let selector_str = tag_name;
+    let selector = match Selector::parse(selector_str) {
+        Ok(sel) => sel,
+        Err(e) => {
+            eprintln!("Error parsing selector '{}': {}", selector_str, e);
+            return Vec::new();
+        }
+    };
+
+    // Collect the HTML content of all matching elements into a Vec<String>
+    let html_contents: Vec<String> = document.select(&selector)
+        .map(|element| element.html())
+        .collect();
+
+    // Use rayon to process the elements in parallel
+    html_contents.par_iter()
+        .map(|html_content| html_content.clone())
+        .collect()
+}

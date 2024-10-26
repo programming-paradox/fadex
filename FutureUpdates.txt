@@ -1,6 +1,3 @@
-### 1. **parse_html**
-   - Parses raw HTML content into a structured format, making it easier for users to navigate and manipulate the document.
-
 ### 2. **find_elements_by_tag**
    - Finds all elements with a specific tag name (e.g., `div`, `span`) and returns them as a list. This can help users locate and extract content within a specific type of HTML tag.
 

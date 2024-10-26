@@ -4,14 +4,14 @@ build-backend = "maturin"
 
 [project]
 name = "Fadex"
-version = "0.1.4"
+version = "0.1.5"
 description = "A Powerful WebScraper With Unmatched Performance"
 readme = "readme.md" 
 authors = [{name = "Fahad", email = "malikfahadnawaz@gmail.com"}]
 license = "MIT"
 homepage = "https://github.com/fahad-programmer/fadex"  
 repository = "https://github.com/fahad-programmer/fadex" 
-keywords = ["web scraping", "scraper", "async", "performance"] 
+keywords = ["web scraping", "scraper", "async", "performance", "Beautiful Soap", "lxml"] 
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
