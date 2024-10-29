@@ -154,3 +154,20 @@ pub fn get_elements_by_tag(html: &str, tag_name: &str) -> Vec<String> {
         .map(|html_content| html_content.clone())
         .collect()
 }
+
+/// Extracts and returns all the text content from an element, ignoring any nested tags.
+pub fn get_text(html: &str, selector: &str) -> Vec<String> {
+    // Parse the HTML document
+    let document = Html::parse_document(html);
+    let selector = Selector::parse(selector).unwrap();
+
+    // Find all elements matching the selector
+    let elements: Vec<_> = document.select(&selector).collect();
+
+    // Extract text content from each element in parallel
+    elements.iter()
+        .map(|element| {
+            element.text().collect::<Vec<_>>().join(" ")
+        })
+        .collect()
+}

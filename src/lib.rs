@@ -80,6 +80,12 @@ fn get_elements_by_tag(html: &str, tag: &str) -> PyResult<Vec<String>> {
     Ok(elements)
 }
 
+#[pyfunction]
+fn get_text(html: &str, selector: &str) -> PyResult<Vec<String>> {
+    let text = parser::get_text(html, selector);
+    Ok(text)
+}
+
 
 /// A Python module implemented in Rust.
 #[pymodule]
@@ -91,5 +97,6 @@ fn fadex(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(fetch_page, m)?)?;
     m.add_function(wrap_pyfunction!(get_elements_by_cls, m)?)?;
     m.add_function(wrap_pyfunction!(get_elements_by_tag, m)?)?;
+    m.add_function(wrap_pyfunction!(get_text, m)?)?;
     Ok(())
 }
